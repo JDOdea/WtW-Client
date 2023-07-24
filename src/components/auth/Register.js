@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom"
 export const Register = () => {
     const [user, setUser] = useState({
         email: "",
-        userName: ""
+        userName: "",
+        password: ""
     })
     let navigate = useNavigate()
 
@@ -64,6 +65,12 @@ export const Register = () => {
                     <input onChange={updateUser}
                         type="email" id="email" className="form-control"
                         placeholder="Email address" required />
+                </fieldset>
+                <fieldset>
+                    <label htmlFor="password"> Password </label>
+                    <input onChange={updateUser} 
+                        type="password" id="password" className="form-control"
+                        placeholder="" required />
                 </fieldset>
                 <fieldset>
                     <button type="submit"> Register </button>

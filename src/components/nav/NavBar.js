@@ -1,3 +1,4 @@
+import "./NavBar.css"
 import { Link, useNavigate } from "react-router-dom"
 
 export const NavBar = () => {
@@ -5,6 +6,7 @@ export const NavBar = () => {
 
     return (
         <ul className="navbar">
+            <h1 className="navbar__logo">WtW</h1>
             {
                 localStorage.getItem("wait_user")
                 ? <li className="navbar__item navbar__logout">
