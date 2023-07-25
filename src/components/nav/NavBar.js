@@ -1,22 +1,21 @@
 import "./NavBar.css"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { NavItem } from "./NavItem"
+import { ReactComponent as CaretIcon } from "./icons/caret.svg"
+import { DropdownMenu } from "./DropdownMenu"
+
+
 
 export const NavBar = () => {
     const navigate = useNavigate()
 
     return (
-        <ul className="navbar">
-            <h1 className="navbar__logo">WtW</h1>
-            {
-                localStorage.getItem("wait_user")
-                ? <li className="navbar__item navbar__logout">
-                    <Link className="navbar__link" to="" onClick={() => {
-                        localStorage.removeItem("wait_user")
-                        navigate("/", {replace: true})
-                    }}>Logout</Link>
-                </li>
-                : ""
-            }
-        </ul>
+        <nav className="navbar">
+            <ul className="navbar-nav">
+                <NavItem icon={<CaretIcon />}>
+                    <DropdownMenu />
+                </NavItem>
+            </ul>
+        </nav>
     )
 }
