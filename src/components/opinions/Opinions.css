@@ -1,0 +1,16 @@
+.opinions {
+    display: flex;
+    flex-direction: column;
+}
+
+.opinion {
+    background-color: rgb(243, 230, 255);
+    border: 1px dotted darkmagenta;
+    padding: 0.7rem;
+    margin: 0.5rem 0;
+}
+
+.opinion-header {
+    font-size: large;
+    padding: 0 0 1rem 0;
+}
