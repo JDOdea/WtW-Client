@@ -1,0 +1,12 @@
+.attractions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.attraction {
+    background-color: rgb(243, 230, 255);
+    border: 1px dotted darkmagenta;
+    padding: 0.7rem;
+    margin: 0.5rem 0;
+}
