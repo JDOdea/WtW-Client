@@ -4,6 +4,7 @@ import { ResortsContainer } from "../resorts/ResortsContainer"
 import { AttractionsContainer } from "../attractions/AttractionsContainer"
 import { AttractionDetails } from "../attractions/AttractionDetails"
 import { OpinionForm } from "../opinions/OpinionForm"
+import { Discussion } from "../discussions/Discussion"
 
 export const ApplicationViews = () => {
     return (
@@ -17,8 +18,10 @@ export const ApplicationViews = () => {
                 <Route path="" element={ <ResortsContainer /> } />
                 <Route path=":resortSlug/parks" element={ <ParksContainer /> } />
                 <Route path=":resortSlug/:parkSlug/rides" element={ <AttractionsContainer /> } />
-                <Route path=":parkSlug/:attractionSlug/details" element={ <AttractionDetails /> }/>
-                <Route path=":parkSlug/:attractionSlug/createOpinion" element={ <OpinionForm /> }/>
+                <Route path=":parkSlug/:attractionSlug/details" element={ <AttractionDetails /> } />
+                <Route path=":parkSlug/:attractionSlug/createOpinion" element={ <OpinionForm /> } />
+                <Route path="discussions/:discussionId" element={ <Discussion /> } />
+                <Route path=":userName" element={ <></> }/>
             </Route>
         </Routes>
     )
