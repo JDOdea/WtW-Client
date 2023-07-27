@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { OpinionsList } from "../opinions/OpinionsList"
+import { DiscussionList } from "../discussions/DiscussionList"
 
 export const AttractionDetails = () => {
     const [park, updatePark] = useState({})
@@ -9,6 +10,7 @@ export const AttractionDetails = () => {
     const [live, updateLive] = useState({})
     const [opinions, setOpinions] = useState([])
     const [filteredOpinions, setFiltered] = useState([])
+    const [discussions, setDiscussion] = useState([])
 
     const {parkSlug} = useParams()
     const {attractionSlug} = useParams()
@@ -21,6 +23,14 @@ export const AttractionDetails = () => {
                     return opinion.attractionId === attraction.id
                 })
                 setOpinions(singleAttractionOpinions)
+        })
+    }
+
+    const getAllDiscussions = () => {
+        fetch(`http://localhost:8088/discussions?attractionId=${attraction.id}`)
+            .then(res => res.json())
+            .then((discussionArray) => {
+                setDiscussion(discussionArray)
         })
     }
 
@@ -47,10 +57,11 @@ export const AttractionDetails = () => {
         []
     )
 
-    // Grab opinions based on selected attraction
+    // Grab opinions and discussions based on selected attraction
     useEffect(
         () => {
             getAllOpinions()
+            getAllDiscussions()
         },
         [attraction]
     )
@@ -72,6 +83,9 @@ export const AttractionDetails = () => {
         opinions={opinions}
         opinionSetter={setOpinions}
         opinionGetter={getAllOpinions}
+        />
+        <DiscussionList 
+        discussions={discussions}
         />
         </>
     )
