@@ -1,6 +1,6 @@
 export const ParkSearch = ({ setterFunction }) => {
     return (
-        <div>
+        <div className="park-search">
             <input 
                 onChange={
                     (changeEvent) => {
