@@ -18,9 +18,11 @@ export const DropdownMenu = (props) => {
     const dropdownRef = useRef(null)
     const navigate = useNavigate()
 
+
     useEffect(
         () => {
             setMenuHeight(dropdownRef.current?.firstChild.offsetHeight)
+            
         },
         []
     )
@@ -37,6 +39,17 @@ export const DropdownMenu = (props) => {
                 {props.children}
                 <span className="icon-right">{props.rightIcon}</span>
             </a>
+        )
+    }
+
+    const ProfileItem = (props) => {
+
+        return (
+            <Link className="menu-item" to={`/profile`}>
+                <span className="icon-button">{props.leftIcon}</span>
+                {props.children}
+                <span className="icon-right">{props.rightIcon}</span>
+            </Link>
         )
     }
 
@@ -65,9 +78,9 @@ export const DropdownMenu = (props) => {
             onEnter={calcHeight}>
                 <div className="menu">
 
-                    <DropdownItem leftIcon={<ChevronIcon />}>
+                    <ProfileItem leftIcon={<ChevronIcon />}>
                         My Profile
-                    </DropdownItem>
+                    </ProfileItem>
                     <DropdownItem leftIcon={<BellIcon />}>
                         Opinions
                     </DropdownItem>
