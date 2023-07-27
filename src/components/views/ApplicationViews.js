@@ -5,6 +5,7 @@ import { AttractionsContainer } from "../attractions/AttractionsContainer"
 import { AttractionDetails } from "../attractions/AttractionDetails"
 import { OpinionForm } from "../opinions/OpinionForm"
 import { Discussion } from "../discussions/Discussion"
+import { ProfilePage } from "../profile/ProfilePage"
 
 export const ApplicationViews = () => {
     return (
@@ -21,7 +22,7 @@ export const ApplicationViews = () => {
                 <Route path=":parkSlug/:attractionSlug/details" element={ <AttractionDetails /> } />
                 <Route path=":parkSlug/:attractionSlug/createOpinion" element={ <OpinionForm /> } />
                 <Route path="discussions/:discussionId" element={ <Discussion /> } />
-                <Route path=":userName" element={ <></> }/>
+                <Route path=":userName" element={ <ProfilePage /> }/>
             </Route>
         </Routes>
     )
