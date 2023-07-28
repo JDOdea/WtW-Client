@@ -1,4 +1,5 @@
 import { useState } from "react"
+import "./Resorts.css"
 import { ResortSearch } from "./ResortSearch"
 import { ResortsList } from "./ResortsList"
 

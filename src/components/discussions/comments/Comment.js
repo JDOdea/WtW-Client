@@ -16,14 +16,22 @@ export const Comment = ({ commentObject }) => {
 
     return (
         <>
-            <article className="comment">
-                <section className="comment-user">
-                    {user.userName}
-                </section>
-                <section className="comment-message">
+            <d1 className="post-profile">
+                <dt className="username">{user.userName}</dt>
+                <dt className="avatar-container">
+                    <i className="icon-avatar"></i>
+                </dt>
+            </d1>
+            <div className="post-body">
+                <ul className="post-buttons"></ul>
+                <p className="author" title="Date of post">
+                    Date
+                </p>
+                <div className="content">
                     {commentObject.message}
-                </section>
-            </article>
+                </div>
+                <div className="signature">Signature</div>
+            </div>
         </>
     )
 }

@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom"
+import "./Wait.css"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 import { NavBar } from "./nav/NavBar"

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import "./Resorts.css"
 import { useNavigate } from "react-router-dom"
 import { Resort } from "./Resort"
 

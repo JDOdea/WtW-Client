@@ -1,3 +1,5 @@
+/* Discussions List */
+
 .discussions {
     display: flex;
     flex-direction: column;
@@ -13,14 +15,243 @@
 }
 
 .discussion-header {
-    font-size: large;
-    padding: 0 0 1rem 0;
+    display: block;
+    line-height: inherit;
+    padding: 11px 15px 8px;
+    overflow: hidden;
+    border-radius: 2px;
+    position: relative;
+    font-size: inherit;
+    color: #fff;
+    background: #313f4f;
+    margin: 22px 0 2px;
+}
+
+.list-group {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list-item {
+    background-color: rgb(243, 230, 255);
+    border: 1px dotted darkmagenta;
+    padding: 0.7rem;
+    margin: 0.5rem 0;
+    text-align: center;
+}
+
+.list-group .list-item:first-child {
+    border-top: 0;
+}
+
+.list-group .list-item {
+    cursor: default;
+    position: relative;
+    background-color: #fff;
+    border-top: 1px solid #ececec;
+}
+
+.list-group .list-item .item-inner {
+    display: table;
+    width: 100%;
+}
+
+.list-group .list-item .item-inner .item-col-icon {
+    position: relative;
+    padding-right: 0;
+    padding-left: 0;
+    text-align: center;
+    width: 60px;
+    color: #bbb;
+}
+
+.list-group .list-item .item-inner .item-col-icon {
+    font-size: 19px;
+}
+
+.list-group .list-item .item-inner .item-col-main .item-title {
+    color: #333;
+    margin: 0 2px 0 0;
+    display: inline-block;
+    position: relative;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.list-group .list-item .item-inner .item-col-lastpost .item-lastpost__user {
+    color: #1F324A;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.list-group .list-item .item-inner .item-col-lastpost .item-lastpost__avatar {
+    position: relative;
+    float: left;
+    top: 1px;
+    margin-right: 10px;
+    display: inline-block;
+    background: #c6c6c6;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.list-group .list-item .item-inner .item-col-lastpost .item-lastpost__time {
+    display: block;
+    font-size: 13px;
+    color: #969696;
+    line-height: 1.35em;
+    padding-top: 3px;
+    padding-left: 40px;
+}
+
+.list-group .list-item .item-inner [class^=item-col-] {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 18px 7.5px 14px;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+}
+
+/* Discussion Page */
+
+.breadcrumbs-bar {
+    display: block;
+    position: relative;
+    padding: 10px 0;
+    margin-bottom: 15px;
+    background: #EFEFEF;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.ol.nav-breadcrumbs {
+    list-style-type: none;
+    font-size: 8.5px;
+    font-size: 0.85rem;
+    margin: 0 auto;
+    color: #777;
+    line-height: 30px;
+    height: auto;
+    cursor: default;
+    max-width: 930px;
+    float: none;
+}
+
+ol.nav-breadcrumbs .crumb {
+    display: block;
+    float: left;
+    font-size: inherit;
 }
 
 .discussionPage-header {
     font-size: large;
     padding: 1rem 0 1rem 0;
     text-align: center;
+}
+
+.post-list h1 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #333;
+    margin: 30px 0 18px;
+    padding: 0;
+}
+
+.post-list .post-list-group .post {
+    position: relative;
+    border: 1px solid #dadada;
+    margin-bottom: 15px;
+}
+
+.post-list .post-list-group .post .post-profile {
+    float: left;
+    margin: 15px;
+    padding: 8px;
+    width: 160px;
+    border-right: 1px solid #E7E7E7;
+}
+
+.post-list .post-list-group .post .post-profile {
+    background: #fff;
+    text-align: center;
+    margin: 12px 14px 0;
+}
+
+.post-list .post-list-group .post .post-profile .username {
+    margin-left: auto;
+    margin-bottom: 8px;
+    text-align: center;
+    line-height: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1F324A;
+    line-height: 44px;
+    text-align: left;
+    margin-left: 60px;
+}
+
+.post-list .post-list-group .post .post-profile .avatar-container {
+    position: absolute;
+    top: 12px;
+    left: 14px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #ccc;
+}
+
+.post-list .post-list-group .post .post-profile .avatar-container i {
+    font-size: 22px;
+    line-height: 44px;
+    color: #fff;
+}
+
+.post-list .post-list-group .post .post-body {
+    padding: 10px 15px 15px;
+}
+
+.post-list .post-list-group .post .post-body .post-buttons {
+    list-style-type: none;
+    text-align: right;
+    max-width: 40%;
+    float: right;
+    position: relative;
+    top: 0;
+    right: -2px;
+    margin: 0;
+}
+
+.post-list .post-list-group .post .post-body .author {
+    color: #969696;
+    padding: 0 0 15px;
+    margin: 0 0 15px;
+    border-bottom: 1px solid #e7e7e7;
+    font-size: 14px;
+}
+
+.post-list .post-list-group .post .post-body .content {
+    font-size: 16px;
+    line-height: 1.6em;
+}
+
+.post-list .post-list-group .post .post-body .signature {
+    font-style: italic;
+    color: #969696;
+    margin: 15px -15px -15px;
+    padding: 15px;
+    border-top: 1px solid #e7e7e7;
 }
 
 .comment {
@@ -37,3 +268,4 @@
     padding: 0.7rem;
     margin: 0.5rem 0;
 }
+

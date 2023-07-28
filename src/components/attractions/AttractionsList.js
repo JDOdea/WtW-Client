@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 import "./Attractions.css"
 import { useNavigate, useParams } from "react-router-dom"
 import { Attraction } from "./Attraction"
 
 export const AttractionsList = ({ searchTermState }) => {
+    const attractionContext = createContext()
     const [attractions, setAttractions] = useState([])
     const [filteredAttractions, setFiltered] = useState([])
     const {resortSlug} = useParams()

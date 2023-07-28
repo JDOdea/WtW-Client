@@ -86,6 +86,7 @@ export const AttractionDetails = () => {
         />
         <DiscussionList 
         discussions={discussions}
+        attractionName={attraction.name}
         />
         </>
     )

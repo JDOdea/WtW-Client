@@ -1,6 +1,6 @@
 export const ResortSearch = ({ setterFunction }) => {
     return (
-        <div>
+        <div className="resort-search">
             <input 
                 onChange={
                     (changeEvent) => {
