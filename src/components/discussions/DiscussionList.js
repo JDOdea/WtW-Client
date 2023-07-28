@@ -1,28 +1,41 @@
 import "./Discussions.css"
 import { DiscussionHeader } from "./DiscussionHeader"
+import { useEffect, useState } from "react"
 
-export const DiscussionList = ({ discussions }) => {
+export const DiscussionList = ({ discussions, attractionName }) => {
+    const [users, setUsers] = useState([])
+    
 
-    /* if (!discussionsArray.length) {
-        return <button>Start a Discussion</button>
-    } else {
-        return 
-    } */
+    useEffect(
+        () => {
+            fetch(`http://localhost:8088/users`)
+                .then(res => res.json())
+                .then(data => {
+                    setUsers(data)
+            })
+        },
+        []
+    )
 
     return (
         <>
             <button>Start a Discussion</button>
-            <h2>Discussions:</h2>
-            <article className="discussions">
-                {
-                    discussions.map(
-                        (discussion) => <DiscussionHeader
-                        discussionObject={discussion}
-                        key={`discussion--${discussion.id}`}
-                        />
-                    )
-                }
-            </article>
+            <div className="thread-list row constrain">
+                <div className="discussion-header">
+                    <h2>{attractionName} Discussions:</h2>
+                </div>
+                <ol className="list-group">
+                    {
+                        discussions.map(
+                            (discussion) => <DiscussionHeader
+                            discussionObject={discussion}
+                            userArray={users}
+                            key={`discussion--${discussion.id}`}
+                            />
+                        )
+                    }
+                </ol>
+            </div>
         </>
     )
 
