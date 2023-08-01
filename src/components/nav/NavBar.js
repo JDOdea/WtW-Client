@@ -34,7 +34,7 @@ export const NavBar = () => {
             </div>
             <ul className="navbar-nav">
                 <NavItem icon={<CaretIcon />} currentUserObject={user}>
-                    <DropdownMenu />
+                    <DropdownMenu currentUserObject={user}/>
                 </NavItem>
             </ul>
         </nav>

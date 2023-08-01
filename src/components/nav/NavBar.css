@@ -78,6 +78,7 @@
 .dropdown {
     position: absolute;
     top: 58px;
+    right: -170px;
     width: 300px;
     transform: translateX(-45%);
     color: var(--text-color);
@@ -141,11 +142,86 @@
     transition: all var(--speed) ease;
 }
 
-.menu-secondary-exit {
+/* .menu-secondary-exit {
 
-}
+} */
 
 .menu-secondary-exit-active {
     transform: translateX(110%);
     transition: all var(--speed) ease;
+}
+
+
+/* Messaging */
+.icon-profilePic {
+    --userButton-size: calc(var(--nav-size) * 0.6);
+    width: var(--userButton-size);
+    height: var(--userButton-size);
+    /* background-color: #484a4d; */
+    border-radius: 50%; 
+    padding: 5px;
+    margin: 2px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: filter 300ms;
+}
+
+.icon-profilePic:hover {
+    filter: brightness(0.8);
+}
+
+.icon-profilePic svg {
+    fill:var(--text-color);
+    width: 50px;
+    height: 52px;
+}
+
+.icon-emptyUser {
+    --emptyButton-size: calc(var(--nav-size) * 0.6);
+    width: var(--emptyButton-size);
+    height: var(--emptyButton-size);
+    background-color: #484a4d;
+    border-radius: 50%;
+    padding: 5px;
+    margin: 2px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: filter 300ms;
+}
+
+.icon-emptyUser:hover {
+    filter: brightness(0.8);
+}
+
+.icon-emptyUser svg {
+    fill:var(--text-color);
+    width: 50px;
+    height: 52px;
+}
+
+.conversation-item {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border-radius: var(--border-radius);
+    transition: background var(--speed);
+    padding: 0.5rem;
+}
+
+.conversation-item:hover {
+    background-color: #525357;
+}
+
+.conversation-userName {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.conversation-recentMessage {
+    font-size: 13px;
+    font-weight: 400;
 }

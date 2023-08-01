@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
-export const ImageUpload = (props) => {
+export const ImageUpload = ({ profileObject, imageId, getProfilePic }) => {
+    const [profile, setProfile] = useState();
     const [feedback, setFeedback] = useState("") // Upload confirmation
 
 
@@ -14,8 +15,17 @@ export const ImageUpload = (props) => {
         [feedback]
     )
 
+    useEffect(
+        () => {
+            setProfile(profileObject)
+        },
+        []
+    )
+
+
     // Create user profile pic if none already
     const uploadImage = (imageData) => {
+        // Post image in db
         fetch(`http://localhost:8088/images`, {
             method: 'POST',
             headers: {
@@ -25,9 +35,27 @@ export const ImageUpload = (props) => {
         })
             .then((res) => res.json())
             .then((data) => {
+                // Confirm upload
                 console.log('Image uploaded successfully:', data)
+                // Create copy of profile and add imageId
+                const copy = {...profile}
+                copy.imageId = data.id
+
+                // Edit json profile to add imageId
+                fetch(`http://localhost:8088/users/${profile.id}`, {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(copy)
+                })
+                    .then(res => res.json())
+                    .then((res) => {
+                })
+            })
+            .then(() => {
                 setFeedback("Profile pic successfully saved")
-                props.getProfilePic()
+                getProfilePic()
             })
             .catch((error) => {
                 console.error('Error uploading image:', error)
@@ -36,7 +64,7 @@ export const ImageUpload = (props) => {
 
     // Replace user profile pic
     const replaceImage = (imageData) => {
-        fetch(`http://localhost:8088/images/${props.imageId}`, {
+        fetch(`http://localhost:8088/images/${imageId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -47,7 +75,7 @@ export const ImageUpload = (props) => {
             .then((data) => {
                 console.log('Image replaced successfully:', data)
                 setFeedback("Profile pic saved")
-                props.getProfilePic()
+                getProfilePic()
             })
             .catch((error) => {
                 console.error('Error replacing image:', error)
@@ -66,7 +94,7 @@ export const ImageUpload = (props) => {
 
             reader.onload = () => {
                 const imageData = reader.result
-                if (props.imageId) {
+                if (imageId) {
                     replaceImage(imageData)
                 } else {
                     uploadImage(imageData)

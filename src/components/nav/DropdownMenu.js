@@ -10,9 +10,13 @@ import { ReactComponent as PlusIcon } from "./icons/plus.svg"
 
 import { CSSTransition } from "react-transition-group"
 import { Link, useNavigate } from "react-router-dom"
+import { Conversation } from "../messages/Conversation"
+import { ProfilePic } from "../profile/ProfilePic"
 
 export const DropdownMenu = (props) => {
-
+    const [users, setUsers] = useState([]);
+    const [currentUser, setCurrentUser] = useState(props.currentUserObject);
+    const [conversations, setConversations] = useState([]);
     const [activeMenu, setActiveMenu] = useState('main')
     const [menuHeight, setMenuHeight] = useState()
     const dropdownRef = useRef(null)
@@ -22,10 +26,23 @@ export const DropdownMenu = (props) => {
     useEffect(
         () => {
             setMenuHeight(dropdownRef.current?.firstChild.offsetHeight)
-            
+
+            fetch(`http://localhost:8088/users`)
+                .then(res => res.json())
+                .then(data => {
+                    setUsers(data)
+            })
+
+            // FIX
+            fetch(`http://localhost:8088/conversations?userId1=${props.currentUserObject.id}`)
+                .then(res => res.json())
+                .then(data => {
+                    setConversations(data)
+            })
         },
         []
     )
+
 
     const calcHeight = (el) => {
         const height = el.offsetHeight
@@ -87,7 +104,9 @@ export const DropdownMenu = (props) => {
                     <DropdownItem leftIcon={<BoltIcon />}>
                         Itineraries
                     </DropdownItem>
-                    <DropdownItem leftIcon={<MessengerIcon />}>
+                    <DropdownItem 
+                    leftIcon={<MessengerIcon />}
+                    goToMenu="messages">
                         Messages
                     </DropdownItem>
                     <DropdownItem
@@ -109,7 +128,9 @@ export const DropdownMenu = (props) => {
             unmountOnExit 
             onEnter={calcHeight}>
                 <div className="menu">
-                    <DropdownItem leftIcon={<ArrowIcon />} goToMenu="main" >
+                    <DropdownItem 
+                    leftIcon={<ArrowIcon />} 
+                    goToMenu="main">
                         <h4>Menu</h4>
                     </DropdownItem>
                     <DropdownItem>Settings</DropdownItem>
@@ -120,6 +141,31 @@ export const DropdownMenu = (props) => {
                     <DropdownItem>Settings</DropdownItem>
                     <DropdownItem>Settings</DropdownItem>
                     
+                </div>
+            </CSSTransition>
+
+            <CSSTransition
+            in={activeMenu === 'messages'}
+            timeout={500}
+            classNames="menu-secondary"
+            unmountOnExit
+            onEnter={calcHeight}>
+                <div className="menu">
+                    <DropdownItem leftIcon={<ArrowIcon />} goToMenu="main" >
+                        <h4>Menu</h4>
+                    </DropdownItem>
+                    <div className="menu">
+                        {
+                            conversations.map(
+                                (conversation) => 
+                                <Conversation 
+                                conversationObject={conversation}
+                                localUserObject={currentUser}
+                                key={`${conversation.id}`}
+                                />
+                            )
+                        }
+                    </div>
                 </div>
             </CSSTransition>
         </div>

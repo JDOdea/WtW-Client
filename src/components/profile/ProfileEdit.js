@@ -3,7 +3,7 @@ import { ImageUpload } from "../images/ImageUpload"
 import { ProfilePic } from './ProfilePic';
 
 export const ProfileEdit = ({ trigger, setTrigger, profileObject, profileId, getProfile }) => {
-    const [imageUrl, setImageUrl] = useState('')
+    const [imageUrl, setImageUrl] = useState(null)
     const [profile, updateProfile] = useState({
         userName: "",
         email: "",
@@ -12,7 +12,8 @@ export const ProfileEdit = ({ trigger, setTrigger, profileObject, profileId, get
     })
 
     const getProfilePic = () => {
-        fetch(`http://localhost:8088/images`)
+        if (profile.imageId) {
+            fetch(`http://localhost:8088/images`)
                 .then(res => res.json())
                 .then(data => {
                     const foundImage = data.find((image) => {
@@ -20,6 +21,7 @@ export const ProfileEdit = ({ trigger, setTrigger, profileObject, profileId, get
                     })
                     setImageUrl(foundImage?.imageData)
             })
+        }
     }
 
     useEffect(
@@ -63,7 +65,7 @@ export const ProfileEdit = ({ trigger, setTrigger, profileObject, profileId, get
     }
 
 
-
+    if (!profile) {return}
 
     return (trigger) ?
     (
@@ -78,8 +80,13 @@ export const ProfileEdit = ({ trigger, setTrigger, profileObject, profileId, get
                     }
                     {
                         profile.imageId
-                        ? < ImageUpload imageId={profile.imageId} getProfilePic={getProfilePic}/>
-                        : < ImageUpload />
+                        ? < ImageUpload 
+                        profileObject={profileObject}
+                        imageId={profile?.imageId} 
+                        getProfilePic={getProfilePic}/>
+                        : < ImageUpload
+                        profileObject={profileObject}
+                        getProfilePic={getProfilePic}/>
                     }
                     <form className="profileEditForm">
                         <fieldset>
