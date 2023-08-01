@@ -65,6 +65,7 @@ export const ResortsList = ({ searchTermState }) => {
                 )
             }
         </article>
+        <button onClick={() => {}} className="btn-top" title="Go to top">Top</button>
         </>
     )
 }

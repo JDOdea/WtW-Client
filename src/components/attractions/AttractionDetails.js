@@ -4,15 +4,15 @@ import { OpinionsList } from "../opinions/OpinionsList"
 import { DiscussionList } from "../discussions/DiscussionList"
 
 export const AttractionDetails = () => {
-    const [park, updatePark] = useState({})
+    /* const [park, updatePark] = useState({}) */
     const [attraction, update] = useState({})
     const [details, updateDetails] = useState({})
     const [live, updateLive] = useState({})
     const [opinions, setOpinions] = useState([])
-    const [filteredOpinions, setFiltered] = useState([])
+    /* const [filteredOpinions, setFiltered] = useState([]) */
     const [discussions, setDiscussion] = useState([])
 
-    const {parkSlug} = useParams()
+    /* const {parkSlug} = useParams() */
     const {attractionSlug} = useParams()
 
     const getAllOpinions = () => {

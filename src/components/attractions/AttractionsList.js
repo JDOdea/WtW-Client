@@ -4,12 +4,12 @@ import { useNavigate, useParams } from "react-router-dom"
 import { Attraction } from "./Attraction"
 
 export const AttractionsList = ({ searchTermState }) => {
-    const attractionContext = createContext()
+    /* const attractionContext = createContext() */
     const [attractions, setAttractions] = useState([])
     const [filteredAttractions, setFiltered] = useState([])
-    const {resortSlug} = useParams()
+    /* const {resortSlug} = useParams() */
     const {parkSlug} = useParams()
-    const navigate = useNavigate()
+    /* const navigate = useNavigate() */
 
     const localWaitUser = localStorage.getItem("wait_user")
     const waitUserObject = JSON.parse(localWaitUser)

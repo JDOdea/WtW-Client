@@ -20,5 +20,6 @@
 
 
 # Links
+Made using React, and Axios
 Credit to cubehouse for their open API to access wait times
 Credit to fireship-io for the .svg icons

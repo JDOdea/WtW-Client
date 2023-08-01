@@ -73,6 +73,11 @@ export const Register = () => {
                         placeholder="" required />
                 </fieldset>
                 <fieldset>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" /> Remember me
+                    </label>
+                    
+                    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a></p>
                     <button type="submit"> Register </button>
                 </fieldset>
             </form>

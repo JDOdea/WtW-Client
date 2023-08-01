@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import './Profile.css'
 import { ProfileEdit } from "./ProfileEdit"
+import { ProfilePic } from "./ProfilePic"
 
 export const ProfilePage = () => {
     const [user, setUser] = useState({})
@@ -17,6 +18,7 @@ export const ProfilePage = () => {
         <ProfileEdit 
         trigger={formPopup}
         setTrigger={setFormPopup}
+        profileObject={user}
         profileId={waitUserObject.id}
         getProfile={getProfile}/>
         </>
@@ -42,7 +44,7 @@ export const ProfilePage = () => {
         <article>
             <section className="profile__header">
                 <header>{user.userName}</header>
-                <div>Profile Pic</div>
+                <ProfilePic userProfilePicId={user.imageId} width='75px' height='75px'/>
                 {editProfileButton()}
             </section>
             <section>
