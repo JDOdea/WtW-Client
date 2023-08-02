@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { ProfilePic } from "../profile/ProfilePic";
 import { ReactComponent as EmptyUser } from "../nav/icons/emptyUser.svg"
+import { ConversationPopup } from "./ConversationPopup";
+import { ChatItem } from "./ChatItem";
+import { ChatDisplay } from "./ChatDisplay";
 
-export const Conversation = ({ conversationObject, localUserObject }) => {
+export const ConversationItem = ({ conversationObject, localUserObject, goToMenu, setActiveMenu }) => {
     const [otherUser, setOtherUser] = useState({});
     const [conversation, setConversation] = useState(conversationObject);
     const [newestMessage, setNewestMessage] = useState({});
@@ -45,28 +48,28 @@ export const Conversation = ({ conversationObject, localUserObject }) => {
         [messages]
     )
 
+    const ProfilePicOrNot = () => {
+        if (otherUser.imageId) {
+            return <span className="icon-profilePic">
+                <ProfilePic 
+                userProfilePicId={otherUser.imageId}
+                width='50px'
+                height='50px'/>
+            </span>
+        } else {
+            return <span className="icon-emptyUser">
+                <EmptyUser className='emptyUser'/>
+            </span>
+        }
+    }
+
 
     return (
         <div className="conversation">
                 <div>
                     <div>
-                        <a href="#" className="conversation-item" /* onClick={() => } */>
-                                {
-                                    otherUser.imageId
-                                    ?
-                                    <span className="icon-profilePic">
-                                        <ProfilePic 
-                                            userProfilePicId={otherUser.imageId}
-                                            width='50px'
-                                            height='50px'
-                                        />
-                                    </span>
-                                    : 
-                                    <span className="icon-emptyUser">
-                                        <EmptyUser className='emptyUser'
-                                        />
-                                    </span>
-                                }
+                        <a href="#" className="conversation-item"onClick={() => goToMenu && setActiveMenu(goToMenu)}>
+                                {ProfilePicOrNot()}
                             <span>
                                 <span className="conversation-userName">{otherUser.userName}</span>
                                 <div style={{height: 8 + 'px'}}></div>
@@ -78,4 +81,17 @@ export const Conversation = ({ conversationObject, localUserObject }) => {
         </div>
     )
 
+    /* return (
+        <div className="conversation">
+            <div>
+                <ChatItem
+                icon={ProfilePicOrNot()}
+                otherUserName={otherUser.userName}
+                newestMessage={newestMessage?.message}
+                >
+
+                </ChatItem>
+            </div>
+        </div>
+    ) */
 }

@@ -10,8 +10,9 @@ import { ReactComponent as PlusIcon } from "./icons/plus.svg"
 
 import { CSSTransition } from "react-transition-group"
 import { Link, useNavigate } from "react-router-dom"
-import { Conversation } from "../messages/Conversation"
+import { ConversationItem } from "../messages/ConversationItem"
 import { ProfilePic } from "../profile/ProfilePic"
+import { ChatDisplay } from "../messages/ChatDisplay"
 
 export const DropdownMenu = (props) => {
     const [users, setUsers] = useState([]);
@@ -158,14 +159,36 @@ export const DropdownMenu = (props) => {
                         {
                             conversations.map(
                                 (conversation) => 
-                                <Conversation 
+                                <ConversationItem 
                                 conversationObject={conversation}
                                 localUserObject={currentUser}
-                                key={`${conversation.id}`}
+                                goToMenu='chat'
+                                setActiveMenu={setActiveMenu}
+                                key={`conversation--${conversation.id}`}
                                 />
                             )
                         }
+                        {/* NEW CONVERSATION HERE */}
                     </div>
+                </div>
+            </CSSTransition>
+
+            <CSSTransition
+            in={activeMenu === 'chat'}
+            timeout={500}
+            classNames="menu-secondary"
+            unmountOnExit
+            onEnter={calcHeight}>
+                <div className="menu">
+                    <DropdownItem leftIcon={<ArrowIcon />} goToMenu="messages" >
+                            <h4>Messages</h4>
+                        </DropdownItem>
+                    <ChatDisplay
+                    
+                    localUserObject={currentUser}
+                    setMenuHeight={setMenuHeight}
+                    dropdownRef={dropdownRef}
+                    />
                 </div>
             </CSSTransition>
         </div>
