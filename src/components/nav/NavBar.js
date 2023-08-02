@@ -8,7 +8,7 @@ import { Link } from "react-router-dom"
 
 export const NavBar = () => {
     const [user, setUser] = useState({})
-    const [open, setOpen] = useState(false)
+
 
     const localWaitUser = localStorage.getItem("wait_user")
     const waitUserObject = JSON.parse(localWaitUser)

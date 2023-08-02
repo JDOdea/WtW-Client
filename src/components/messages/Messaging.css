@@ -1,0 +1,83 @@
+.chatWindow {
+    /* display: none; */
+    position: fixed;
+    right: 25px;
+    bottom: 0;
+    width: 300px;
+    --bg: #242526;
+    --bg-accent: #484a4d;
+    --text-color: #dadce1;
+    --window-size: 360px;
+    --border: 1px solid #474a4d;
+    --border-radius: 8px;
+    --speed: 500ms;
+
+    height: var(--window-size);
+    background-color: var(--bg);
+    padding: 0 1rem;
+    border-bottom: var(--border);
+    z-index: 9;
+
+}
+
+.chatWindow-button {
+    position: fixed;
+    right: 25px;
+    bottom: 10px;
+    width: 150px;
+}
+
+.chatWindow-content {
+    position: relative;
+}
+
+.chatWindow-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.chatWindow a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.chatWindow-close {
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.chatWindow-input {
+    display: inherit;
+    align-content: flex-end;
+}
+.chatWindow-inputBox {
+    border-radius: var(--border-radius);
+}
+
+.chat-item {
+    margin: 10px;
+}
+
+.chat-message {
+    display: flex;
+    justify-content: space-between;
+}
+
+.chat-leftMessage {
+    display: inherit;
+    text-align: left;
+}
+
+.chat-rightMessage {
+    display: inherit;
+    text-align: right;
+}
+
+.messages {
+    width: calc(var(--window-size) * 0.6);
+    color: var(--text-color);
+}
+
+.message {
+    width: calc(var(--window-size) * 0.6);
+}
