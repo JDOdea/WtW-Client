@@ -29,17 +29,7 @@ export const Opinion = ({ opinionObject, opinionId, currentUser, getAllOpinions 
     }
 
     return <section className="opinion">
-        <header className="opinion-header">{opinionObject.waitTime} minute wait.</header>
-        <h4>
-            {
-                opinionObject.worthIt
-                ?
-                    "Worth it: YES"
-                :
-                    "Worth it: NO"
-            }
-        </h4>
-        <section>{opinionObject.reasoning}</section>
+        <header className="opinion-header">{opinionObject.waitTime} minute wait.
         <footer>
             {
                 opinionObject.userId === currentUser.id
@@ -56,5 +46,17 @@ export const Opinion = ({ opinionObject, opinionId, currentUser, getAllOpinions 
                     ""
             }
         </footer>
+        </header>
+        <h4>
+            {
+                opinionObject.worthIt
+                ?
+                    "Worth it: YES"
+                :
+                    "Worth it: NO"
+            }
+        </h4>
+        <section className="opinion-reasoning">{opinionObject.reasoning}</section>
+        
     </section>
 }

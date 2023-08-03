@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import './Profile.css'
 import { ProfileEdit } from "./ProfileEdit"
 import { ProfilePic } from "./ProfilePic"
+import { ReactComponent as LocationPin } from "./icons/locationPin.svg"
 
 export const ProfilePage = () => {
     const [user, setUser] = useState({})
@@ -41,14 +42,23 @@ export const ProfilePage = () => {
 
     return (
         <>
-        <article>
-            <section className="profile__header">
-                <header>{user.userName}</header>
+        <article className="profile">
+            <section className="profile__leftSideBar">
                 <ProfilePic userProfilePicId={user.imageId} width='75px' height='75px'/>
+                <header className="profile__userName">{user.userName}</header>
                 {editProfileButton()}
+                <div className="profile__location">
+                    <svg 
+                    aria-hidden="true" 
+                    width="13" 
+                    height="13" >
+                        <LocationPin />
+                    </svg>
+                    {user.location}
+                </div>
             </section>
-            <section>
-                <div>
+            <section className="profile__center">
+                <div className="profile__bio">
                     {
                         (user.bio)
                         ? user.bio
@@ -56,8 +66,12 @@ export const ProfilePage = () => {
                         "Bio empty"
                     }
                 </div>
-                <div>Profile Location</div>
-                <div>Profile Activity</div>
+                
+                <div className="profile__activity">Profile Activity</div>
+                
+            </section>
+            <section className="profile__rightSideBar">
+                <div>Favorites</div>
             </section>
         </article>
         </>

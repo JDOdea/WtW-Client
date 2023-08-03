@@ -1,9 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico");
+
 .navbar {
-    --bg: #242526;
-    --bg-accent: #484a4d;
+    --bg: #2F4858;
+    --bg-accent: #476970;
     --text-color: #dadce1;
     --nav-size: 60px;
-    --border: 1px solid #474a4d;
+    --border: 1px solid #476970;
     --border-radius: 8px;
     --speed: 500ms;
 
@@ -31,6 +33,7 @@
 }
 
 .navbar-logo {
+    font-family: 'Pacifico', cursive;
     font-size: 30px;
     position: absolute;
     top: 10px;

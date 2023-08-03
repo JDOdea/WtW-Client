@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-export const Resort = ({ resortObject, currentUser }) => {
+export const Resort = ({ resortObject }) => {
 
 
     return <section className="resort">

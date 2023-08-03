@@ -19,22 +19,24 @@ export const DiscussionList = ({ discussions, attractionName }) => {
 
     return (
         <>
-            <button>Start a Discussion</button>
-            <div className="thread-list row constrain">
-                <div className="discussion-header">
-                    <h2>{attractionName} Discussions:</h2>
+            <div className="discussionsSection">
+                <button>Start a Discussion</button>
+                <div className="thread-list row constrain">
+                    <div className="discussion-header">
+                        <h2>{attractionName} Discussions:</h2>
+                    </div>
+                    <ol className="list-group">
+                        {
+                            discussions.map(
+                                (discussion) => <DiscussionHeader
+                                discussionObject={discussion}
+                                userArray={users}
+                                key={`discussion--${discussion.id}`}
+                                />
+                            )
+                        }
+                    </ol>
                 </div>
-                <ol className="list-group">
-                    {
-                        discussions.map(
-                            (discussion) => <DiscussionHeader
-                            discussionObject={discussion}
-                            userArray={users}
-                            key={`discussion--${discussion.id}`}
-                            />
-                        )
-                    }
-                </ol>
             </div>
         </>
     )

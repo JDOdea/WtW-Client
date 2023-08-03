@@ -26,30 +26,38 @@ export const Login = () => {
     }
 
     return (
-        <main className="container--login">
-            <section>
-                <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Worth the Wait</h1>
-                    <h2>Please sign in</h2>
-                    <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
-                        <input type="email"
-                            value={email}
-                            onChange={e => setEmail(e.target.value)}
-                            className="form-control"
-                            placeholder="Email address"
-                            required autoFocus/>
-                    </fieldset>
-                    <fieldset>
-                        <button type="submit">
-                            Sign in
-                        </button>
-                    </fieldset>
-                </form>
-            </section>
-            <section className="link--register">
-                <Link to="/register">Not a member yet?</Link>
-            </section>
-        </main>
+        <header className="masthead">
+            <main className="container--login">
+                <section>
+                    <form className="form--login" onSubmit={handleLogin}>
+                        <h1>Worth the Wait</h1>
+                        <div>
+                            <hr className="divider"></hr>
+                            <p className="login-text">Should you queue up?</p>
+                        </div>
+                        <div className="form--signIn">
+                            <h2>Sign In</h2>
+                            <fieldset>
+                                <label htmlFor="inputEmail"> Email address </label>
+                                <input type="email"
+                                    value={email}
+                                    onChange={e => setEmail(e.target.value)}
+                                    className="form-control"
+                                    placeholder="Email address"
+                                    required autoFocus/>
+                            </fieldset>
+                            <fieldset>
+                                <button type="submit">
+                                    Sign in
+                                </button>
+                            </fieldset>
+                        </div>
+                    </form>
+                </section>
+                <section className="link--register">
+                    <Link to="/register">Not a member yet?</Link>
+                </section>
+            </main>
+        </header>
     )
 }

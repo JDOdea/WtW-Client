@@ -1,14 +1,10 @@
 import { useEffect, useState } from "react"
-import { useNavigate } from "react-router-dom"
 import { Resort } from "./Resort"
 
-export const ResortsList = ({ searchTermState }) => {
+export const ResortsList = ({ resortsSetter, dropdownTerm, searchTermState }) => {
     const [resorts, setResorts] = useState([])
     const [filteredResorts, setFiltered] = useState([])
-    const navigate = useNavigate()
 
-    const localWaitUser = localStorage.getItem("wait_user")
-    const waitUserObject = JSON.parse(localWaitUser)
 
     useEffect(
         () => {
@@ -30,7 +26,6 @@ export const ResortsList = ({ searchTermState }) => {
             .then(res => res.json())
             .then((data) => {
                 setResorts(data.destinations)
-            
         })
     }
 
@@ -45,6 +40,19 @@ export const ResortsList = ({ searchTermState }) => {
     // useEffect to setFiltered parks
     useEffect(
         () => {
+            // Alphabetize 
+            resorts.sort((a, b) => {
+                const x = a.slug.toLowerCase()
+                const y = b.slug.toLowerCase()
+                if (x < y) {return -1}
+                if (x > y) {return 1}
+                return 0
+            })
+
+            resortsSetter(resorts.map((resort) => {
+                return resort
+            }))
+
             setFiltered(resorts)
         },
         [resorts]
@@ -53,13 +61,12 @@ export const ResortsList = ({ searchTermState }) => {
 
     return (
         <>
-        <h2>List of Resorts</h2>
+        
         <article className="resorts">
             {
                 filteredResorts.map(
                     (resort) => <Resort
                     resortObject={resort}
-                    currentUser={waitUserObject}
                     key={`${resort.id}`}
                     />
                 )

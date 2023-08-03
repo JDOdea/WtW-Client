@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import "./Register.css"
 
 export const Register = () => {
     const [user, setUser] = useState({
@@ -51,7 +52,9 @@ export const Register = () => {
     }
 
     return (
-        <main style={{ textAlign: "center" }}>
+        <main 
+        className="signUpContainer"
+        style={{ textAlign: "center" }}>
             <form className="form--login" onSubmit={handleRegister}>
                 <h1 className="h3 mb-3 font-weight-normal">Register Below</h1>
                 <fieldset>
@@ -74,11 +77,11 @@ export const Register = () => {
                 </fieldset>
                 <fieldset>
                     <label>
-                        <input type="checkbox" checked="checked" name="remember" /> Remember me
+                        <input type="checkbox" defaultChecked name="remember" /> Remember me
                     </label>
                     
-                    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a></p>
-                    <button type="submit"> Register </button>
+                    <p>By creating an account you agree to our <a href="https://www.youtube.com/watch?v=7PfZLPCqxvY">Terms & Privacy</a></p>
+                    <button className="register-button" type="submit"> Register </button>
                 </fieldset>
             </form>
         </main>

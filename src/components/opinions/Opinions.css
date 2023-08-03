@@ -1,16 +1,49 @@
+.tablink {
+    background-color: #6A8A84;
+    color: white;
+    float: left;
+    /* border-bottom: none; */
+    outline: none;
+    cursor: pointer;
+    padding: 2px 13px;
+    font-size: 14px;
+}
+
+.tablink:hover {
+    background-color: #59726e;
+}
+
+.opinionsSection {
+    display: block;
+    background: #476970;
+    border-top: 5px solid #2F4858;
+}
+
+.opinions-header {
+    color: white;
+}
+
 .opinions {
     display: flex;
-    flex-direction: column;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    margin-top: 20px;
+    width: 100%;
 }
 
 .opinion {
-    background-color: rgb(243, 230, 255);
-    border: 1px dotted darkmagenta;
+    background-color: #C8CBB4;
+    width: 40%;
+    height: 175px;
     padding: 0.7rem;
-    margin: 0.5rem 0;
+    margin: 0.5rem 0.5rem 1rem;
 }
 
 .opinion-header {
     font-size: large;
     padding: 0 0 1rem 0;
+}
+
+.opinion-reasoning {
+    font-size: large;
 }

@@ -37,6 +37,15 @@ export const AttractionsList = ({ searchTermState }) => {
     // useEffect to setFiltered attractions
     useEffect(
         () => {
+            // Alphabetize
+            attractions.sort((a, b) => {
+                const x = a.name.toLowerCase()
+                const y = b.name.toLowerCase()
+                if (x < y) {return -1}
+                if (x > y) {return 1}
+                return 0
+            })
+
             setFiltered(attractions)
         },
         [attractions]
@@ -44,7 +53,6 @@ export const AttractionsList = ({ searchTermState }) => {
 
     return (
         <>
-        <h2>List of Attractions</h2>
         <article className="attractions">
             {
                 filteredAttractions.map(

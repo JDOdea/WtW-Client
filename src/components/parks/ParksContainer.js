@@ -6,7 +6,10 @@ export const ParksContainer = () => {
     const [searchTerms, setSearchTerms] = useState("")
 
     return <>
-        <ParkSearch setterFunction={setSearchTerms}/>
+        <header className="parks-header">
+            <span className="parks-headerTitle">Select your Park</span>
+            <ParkSearch setterFunction={setSearchTerms}/>
+        </header>
         <ParksList searchTermState={searchTerms}/>
     </>
 }

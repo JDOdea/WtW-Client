@@ -1,18 +1,54 @@
 .attractions {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-flow: column nowrap;
+    align-items: flex-start;
 }
 
-.attraction {
-    background-color: rgb(243, 230, 255);
-    border: 1px dotted darkmagenta;
-    padding: 0.7rem;
-    margin: 0.5rem 0;
+.attractions-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.attractions-headerTitle {
+    margin-left: 2rem;
 }
 
 .attraction-search {
     display: flex;
     justify-content: center;
-    margin: 0.5rem 0;
+    margin: 0.5rem 2rem;
 }
+
+.attraction {
+    background-color: #C8CBB4;
+    width: 95%;
+    padding: 0.7rem;
+    margin: 0.5rem;
+}
+
+.attractionDetails-header {
+    display: flex;
+    justify-content: center;
+    background-color: #96AB9A;
+}
+
+.attraction-waitTime {
+    display: flex;
+    justify-content: center;
+    
+    font-size: 25px;
+    font-weight: 500;
+
+}
+
+.attractionOpinion-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+

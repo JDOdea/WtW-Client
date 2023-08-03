@@ -1,20 +1,74 @@
 .resorts {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-flow: column nowrap;
+    align-items: flex-start;
 }
 
-.resort {
-    background-color: rgb(243, 230, 255);
-    border: 1px dotted darkmagenta;
-    padding: 0.7rem;
-    margin: 0.5rem 0;
+.resorts-bar {
+    background-color: #476970;
+}
+
+.resorts-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.resorts-headerTitle {
+    margin-left: 2rem;
 }
 
 .resort-search {
     display: flex;
     justify-content: center;
-    margin: 0.5rem 0;
+    margin: 0.5rem 2rem;
+}
+
+.resort-dropdown {
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: 600;
+    font-size: 20px;
+    width: 200px;
+    background-color: #476970;
+}
+
+.resort-dropdown a {
+    color: white;
+    text-decoration: none;
+}
+
+.resort-dropdown-content {
+    top: 91px;
+    position: absolute;
+    color: white;
+    font-size: 12px;
+    font-weight: 0;
+}
+
+.resort-dropdown-content svg {
+    margin-top: 10px;
+    rotate: 270deg;
+}
+
+.resort-dropdown--align-left {
+    display: flex;
+    justify-content: space-between;
+}
+
+.resort-dropdown--align-left:hover {
+    filter: brightness(0.9);
+}
+
+
+.resort {
+    background-color: #C8CBB4;
+    width: 95%;
+    padding: 0.7rem;
+    margin: 0.5rem;
 }
 
 .btn-top {
