@@ -6,23 +6,11 @@ import { AttractionDetails } from "../attractions/AttractionDetails"
 import { OpinionForm } from "../opinions/OpinionForm"
 import { Discussion } from "../discussions/Discussion"
 import { ProfilePage } from "../profile/ProfilePage"
-import { useEffect } from "react"
 
 
 export const ApplicationViews = () => {
 
 
-    // Set background on visit
-    /* useEffect(
-        () => {
-            if (localStorage.getItem("wait_user")) {
-                document.body.style = 'background: antiqueWhite;'
-            } else {
-                document.body.backgroundImage = 'url(../auth/images/bg-image1.webp)'
-            }
-        },
-        []
-    ) */
 
     return (
         <Routes>

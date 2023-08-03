@@ -22,9 +22,8 @@
 }
 
 .resort-search {
-    display: flex;
-    justify-content: center;
-    margin: 0.5rem 2rem;
+    border-radius: .5rem;
+    margin-right: 2rem;
 }
 
 .resort-dropdown {
