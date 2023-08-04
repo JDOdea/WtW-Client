@@ -1,0 +1,31 @@
+.signUpContainer {
+    padding-top: 0;
+
+    /* background: -webkit-gradient(linear,left top,left bottom,from(rgba(250, 235, 215, 0.8)),to(rgba(250, 235, 215, .8))),url('./images/bg-image1.webp');
+    background: linear-gradient(to bottom, rgba(250, 235, 215, .8) 0, rgba(250, 235, 215, .8) 100%),url('./images/bg-image1.webp'); */
+
+    background: -webkit-gradient(linear,left top,left bottom,from(rgba(200, 203, 180, 0.8)),to(rgba(200, 203, 180, .8))),url('./images/bg-image2.webp');
+    background: linear-gradient(to bottom, rgba(200, 203, 180, .8) 0, rgba(200, 203, 180, .8) 100%),url('./images/bg-image2.webp');
+
+    /* background: -webkit-gradient(linear,left top,left bottom,from(rgba(150, 171, 154, 0.8)),to(rgba(150, 171, 154, .8))),url('./images/bg-image1.webp');
+    background: linear-gradient(to bottom, rgba(150, 171, 154, .8) 0, rgba(150, 171, 154, .8) 100%),url('./images/bg-image1.webp'); */
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    height: 100%;
+}
+
+@media (min-width: 992px) {
+    .signUpContainer {
+        height: 100vh;
+        min-height: 40rem;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+.register-button {
+    border-radius: .50rem;
+}

@@ -69,25 +69,27 @@ export const AttractionDetails = () => {
 
     return (
         <>
-        <h1 className="attraction-header">{attraction.name}</h1>
+        <h1 className="attractionDetails-header">{attraction.name}</h1>
         <article>
-            <div>
+            <div className="attraction-waitTime">
                 {
                     attractionWaitTime()
                 }
             </div>
         </article>
-        <OpinionsList 
-        attractionId={attraction.id} 
-        waitTime={live?.STANDBY?.waitTime} 
-        opinions={opinions}
-        opinionSetter={setOpinions}
-        opinionGetter={getAllOpinions}
-        />
-        <DiscussionList 
-        discussions={discussions}
-        attractionName={attraction.name}
-        />
+        <article className="attractionDetails-userPosts">
+            <OpinionsList 
+            attractionId={attraction.id} 
+            waitTime={live?.STANDBY?.waitTime} 
+            opinionsArray={opinions}
+            opinionSetter={setOpinions}
+            opinionGetter={getAllOpinions}
+            />
+            <DiscussionList 
+            discussions={discussions}
+            attractionName={attraction.name}
+            />
+        </article>
         </>
     )
 }

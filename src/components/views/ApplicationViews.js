@@ -7,7 +7,11 @@ import { OpinionForm } from "../opinions/OpinionForm"
 import { Discussion } from "../discussions/Discussion"
 import { ProfilePage } from "../profile/ProfilePage"
 
+
 export const ApplicationViews = () => {
+
+
+
     return (
         <Routes>
             <Route path="/" element={

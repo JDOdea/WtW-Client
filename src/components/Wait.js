@@ -5,7 +5,6 @@ import { Register } from "./auth/Register"
 import { NavBar } from "./nav/NavBar"
 import { ApplicationViews } from "./views/ApplicationViews"
 import { Authorized } from "./views/Authorized"
-import { ConversationPopup } from "./messages/ConversationPopup"
 
 export const Wait = () => {
     return <Routes>
@@ -17,7 +16,6 @@ export const Wait = () => {
 				<>
 					<NavBar />
 					<ApplicationViews />
-					{/* <ConversationPopup /> */}
 				</>
 			</Authorized>
 
