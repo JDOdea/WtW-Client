@@ -58,7 +58,7 @@ export const AttractionsList = ({ searchTermState }) => {
                 filteredAttractions.map(
                     (attraction) => <Attraction 
                     parkSlug={parkSlug}
-                    attractionObject={attraction}
+                    attractionobject={attraction}
                     currentUser={waitUserObject}
                     key={`${attraction.id}`}
                     />

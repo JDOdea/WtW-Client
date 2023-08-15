@@ -3,6 +3,25 @@
     flex-flow: column nowrap;
     align-items: flex-start;
 }
+.parks-bar {
+    background-color: #476970;
+}
+
+ol.breadcrumb {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    list-style: none;
+}
+
+.breadcrumb li {
+    padding-right: 35px;
+}
+
+.breadcrumb a {
+    color: white;
+    text-decoration: none;
+}
 
 .parks-header {
     display: flex;

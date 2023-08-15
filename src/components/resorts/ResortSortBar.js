@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import { ReactComponent as CaretIcon } from "../nav/icons/caret.svg"
 import { ResortSortItem } from "./ResortSortItem";
 
@@ -60,7 +61,7 @@ export const ResortSortBar = ({ resortOptions, dropdownSetter }) => {
                     }
                 </div>
             )}
-        </div>
+            </div>
         </div>
     )
 }

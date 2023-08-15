@@ -61,12 +61,12 @@ export const Discussion = () => {
     return (
         <>
             <div className="wait_forums">
-                <div className="breadcrumbs-bar row">
+                {/* <div className="breadcrumbs-bar row">
                     <ol className="nav-breadcrumbs col">
                     Breadcrumbs
                         <li className="crumb"></li>
                     </ol>
-                </div>
+                </div> */}
                 <div className="post-list row constrain">
                     <div className="col">
                     <h1 className="discussionPage-header">{discussion.title}</h1>

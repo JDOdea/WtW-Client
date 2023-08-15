@@ -4,16 +4,14 @@ import { OpinionsList } from "../opinions/OpinionsList"
 import { DiscussionList } from "../discussions/DiscussionList"
 
 export const AttractionDetails = () => {
-    /* const [park, updatePark] = useState({}) */
     const [attraction, update] = useState({})
     const [details, updateDetails] = useState({})
     const [live, updateLive] = useState({})
     const [opinions, setOpinions] = useState([])
-    /* const [filteredOpinions, setFiltered] = useState([]) */
     const [discussions, setDiscussion] = useState([])
 
-    /* const {parkSlug} = useParams() */
-    const {attractionSlug} = useParams()
+
+    const {attractionId} = useParams()
 
     const getAllOpinions = () => {
         fetch(`http://localhost:8088/opinions`)
@@ -36,22 +34,24 @@ export const AttractionDetails = () => {
 
     // Function to check if ride is operating
     const attractionWaitTime = () => {
-        if (details.status !== "CLOSED") {
+        if (!live) {
+            return "No data available"
+        } else if (details.status !== "CLOSED") {
             return "Current Wait Time: " + live?.STANDBY?.waitTime + " minutes"
         } else {
             return "Attraction Currently Closed"
         }
     }
 
-    // Initial useEffect
+
     useEffect(
         () => {
-            fetch(`https://api.themeparks.wiki/v1/entity/${attractionSlug}/live`)
-                .then(res => res.json())
-                .then((data) => {
-                    update(data) // Update current attraction
-                    updateDetails(data.liveData[0]) // Update current attraction details
-                    updateLive(data.liveData[0].queue) // Update current attraction queue time
+            fetch(`https://api.themeparks.wiki/v1/entity/${attractionId}/live`)
+                    .then(res => res.json())
+                    .then((data) => {
+                        update(data) // Update current attraction
+                        updateDetails(data?.liveData[0]) // Update current attraction details
+                        updateLive(data?.liveData[0]?.queue) // Update current attraction queue time
             })
         },
         []
