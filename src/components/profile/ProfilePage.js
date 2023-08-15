@@ -44,7 +44,9 @@ export const ProfilePage = () => {
         <>
         <article className="profile">
             <section className="profile__leftSideBar">
-                <ProfilePic userProfilePicId={user.imageId} width='75px' height='75px'/>
+                <div className="profile__profilePic">
+                    <ProfilePic userProfilePicId={user.imageId} width='75px' height='75px'/>
+                </div>
                 <header className="profile__userName">{user.userName}</header>
                 {editProfileButton()}
                 <div className="profile__location">
@@ -58,20 +60,42 @@ export const ProfilePage = () => {
                 </div>
             </section>
             <section className="profile__center">
-                <div className="profile__bio">
-                    {
-                        (user.bio)
-                        ? user.bio
-                        :
-                        "Bio empty"
-                    }
+                <div className="profile__bioBox">
+                    <span className="profile__bio">
+                        {
+                            (user.bio)
+                            ? user.bio
+                            :
+                            "Bio empty"
+                        }
+                    </span>
                 </div>
                 
-                <div className="profile__activity">Profile Activity</div>
+                <div className="profile__activity">
+                    <span className="profile__activityHeader">Recent Activity</span>
+                    <div className="profile__activities">
+                        <span className="profile__activityItem">
+                            <span className="profile__activityText">Commented on illumiGreg's 'Seven Dwarves Mine Train' Discussion</span>
+                        </span>
+                        <span className="profile__activityItem">
+                            <span className="profile__activityText">Posted an opinion on 'Men in Black: Alien Attack'</span>
+                        </span>
+                        <span className="profile__activityItem">
+                            <span className="profile__activityText">Posted an opinion on 'TRON Lightcycle / Run'</span>
+                        </span>
+                        <span className="profile__activityItem">
+                            <span className="profile__activityText">Started a discussion on 'Jurassic World River Adventure'</span>
+                        </span>
+                        <span className="profile__activityItem">
+                            <span className="profile__activityText">Edited an opinion on 'Buzz Lightyear's Space Ranger Spin'</span>
+                        </span>
+                    </div>
+                    </div>
                 
             </section>
             <section className="profile__rightSideBar">
                 <div>Favorites</div>
+                <span className="profile__favorites">No public favorites to display</span>
             </section>
         </article>
         </>

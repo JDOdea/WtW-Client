@@ -1,7 +1,14 @@
+.resortPage {
+    display: flex;
+    justify-content: space-between;
+}
+
 .resorts {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: column wrap;
     align-items: flex-start;
+    height: 50rem;
+    width: 20%;
 }
 
 .resorts-bar {
@@ -65,9 +72,33 @@
 
 .resort {
     background-color: #C8CBB4;
-    width: 95%;
-    padding: 0.7rem;
+    width: 45%;
+    padding: 0.5rem;
     margin: 0.5rem;
+    text-align: center;
+}
+
+.favoriteResorts {
+    background-color: #C8CBB4;
+    margin-right:1.5rem;
+    width: 20%;
+    height: 30rem;
+    border-radius: .5rem;
+    text-align: center;
+}
+
+.favorites-headerTitle {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.favorite {
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
+
+.favorite:link {
+    text-decoration: none;
 }
 
 .btn-top {

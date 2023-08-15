@@ -20,11 +20,11 @@ export const DiscussionList = ({ discussions, attractionName }) => {
     return (
         <>
             <div className="discussionsSection">
-                <button>Start a Discussion</button>
                 <div className="thread-list row constrain">
                     <div className="discussion-header">
                         <h2>{attractionName} Discussions:</h2>
                     </div>
+                    <button className="discussions-startButton" >Start a Discussion</button>
                     <ol className="list-group">
                         {
                             discussions.map(

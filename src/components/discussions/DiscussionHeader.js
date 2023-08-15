@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { ReactComponent as DiscussionIcon } from "./icons/discussion.svg"
 import { useEffect, useState } from "react"
+import { ProfilePic } from "../profile/ProfilePic"
 
 export const DiscussionHeader = ({ discussionObject, userArray }) => {
     const [poster, setPoster] = useState({})
@@ -31,10 +32,16 @@ export const DiscussionHeader = ({ discussionObject, userArray }) => {
                     </div>
                     <div className="item-col-lastpost">
                         <a className="item-lastpost__user" href="">{poster.userName}</a>
-                        <span className="item-lastpost__avatar"></span>
-                        <span className="item-lastpost__time">Created 
-                            <time dateTime={discussionObject.datePosted}> Date</time>
+                        <span className="item-lastpost__avatar">
+                            <ProfilePic 
+                            userProfilePicId={poster.imageId}
+                            width={30}
+                            height={30}
+                            />
                         </span>
+                        {/* <span className="item-lastpost__time">Created 
+                            <time dateTime={discussionObject.datePosted}> Date</time>
+                        </span> */}
                     </div>
                 </div>
             </li>

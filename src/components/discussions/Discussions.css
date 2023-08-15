@@ -20,6 +20,10 @@
     text-align: center;
 }
 
+.discussions-startButton {
+    border-radius: 5px;
+}
+
 .discussion-header {
     display: block;
     line-height: inherit;
@@ -188,7 +192,7 @@ ol.nav-breadcrumbs .crumb {
 }
 
 .post-list .post-list-group .post .post-profile {
-    background: #fff;
+    background-color: rgb(243, 230, 255);
     text-align: center;
     margin: 12px 14px 0;
 }
@@ -208,8 +212,8 @@ ol.nav-breadcrumbs .crumb {
 
 .post-list .post-list-group .post .post-profile .avatar-container {
     position: absolute;
-    top: 12px;
-    left: 14px;
+    top: 25px;
+    left: 26px;
     width: 44px;
     height: 44px;
     border-radius: 50%;

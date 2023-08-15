@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { AttractionSearch } from "./AttractionSearch"
 import { AttractionsList } from "./AttractionsList"
+import { FavoriteAttractions } from "../favorites/FavoriteAttractions"
 
 export const AttractionsContainer = () => {
     const [searchTerms, setSearchTerms] = useState("")
@@ -10,6 +11,9 @@ export const AttractionsContainer = () => {
             <span className="attractions-headertitle">Select an Attraction</span>
         <AttractionSearch setterFunction = {setSearchTerms}/>
         </header>
-        <AttractionsList searchTermState = {searchTerms}/>
+        <div className="attractionsPage">
+            <AttractionsList searchTermState = {searchTerms}/>
+            <FavoriteAttractions />
+        </div>
     </>
 }

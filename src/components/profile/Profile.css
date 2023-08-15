@@ -9,6 +9,13 @@
     text-align: center;
     margin-top: 40px;
     margin-left: 10px;
+    background-color: #C8CBB4;
+    height: 80vh;
+    width: 30vh;
+}
+
+.profile__profilePic {
+    margin-top: 25px;
 }
 
 .profile__userName {
@@ -26,23 +33,57 @@
 }
 
 .profile__center {
-    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 32px;
+    width: 100%;
 }
 
-.profile__bio {
+.profile__bioBox {
     display: flex;
     justify-content: center;
+    align-items: center;
     background-color: #C8CBB4;
     padding: 0.7rem;
     margin: 0.5rem;
+    height: 70px;
+}
+
+.profile__bio {
+    font-weight: 500;
 }
 
 .profile__activity {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
     background-color: #C8CBB4;
     padding: 0.7rem;
     margin: 0.5rem;
+    border-top: 5px solid #96AB9A;
+}
+
+.profile__activityHeader {
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.profile__activities {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+}
+
+.profile__activityItem {
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    border: 2px solid #96AB9A;
+}
+
+.profile__activityText {
+    margin: 30px;
 }
 
 .profile__rightSideBar {
@@ -51,5 +92,12 @@
     line-height: 3rem;
     text-align: center;
     margin-top: 40px;
-    margin-right: 50px;
+    margin-right: 10px;
+    background-color: #C8CBB4;
+    width: 40vh;
+}
+
+.profile__favorites {
+    font-size: small;
+    font-weight: 500;
 }
